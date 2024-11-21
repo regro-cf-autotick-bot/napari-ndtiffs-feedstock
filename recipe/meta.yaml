@@ -1,13 +1,13 @@
 {% set name = "napari-ndtiffs" %}
-{% set version = "0.1.2" %}
+{% set version = "0.2.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/napari-ndtiffs-{{ version }}.tar.gz
-  sha256: 39a75ef7b7a2b3be4b0b017ffcd3bedffeab47363418491a4ce848316d864939
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 4e290f2d87e4a9a1020ff5b8ad66f4a6d92f5ea6daadd60b937beae4b5312054
 
 build:
   noarch: python
