@@ -6,24 +6,24 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
   sha256: 4e290f2d87e4a9a1020ff5b8ad66f4a6d92f5ea6daadd60b937beae4b5312054
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python {{ python_min }}
     - setuptools-scm
   run:
     - dask-core
     - napari-plugin-engine >=0.1.4
     - numpy
-    - python >=3.7
+    - python >={{ python_min }}
     - python-dateutil
     - scipy
     - tifffile
@@ -38,6 +38,7 @@ test:
   requires:
     - pip
     - platformdirs   # fix false positive with pip check
+    - python {{ python_min }}
 
 about:
   home: https://github.com/tlambert03/napari-ndtiffs
